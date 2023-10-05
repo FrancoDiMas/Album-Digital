@@ -1,0 +1,977 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif, Courier, monospace;
+    text-decoration: none;
+}
+
+:root {
+    --bg-color: #000;
+    --gris-color: #242424;
+    --text-color: #eee;
+}
+
+body {
+    color: var(--text-color);
+    background: url(../imagenes/fondo-real.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--text-color);
+    width: 100%;
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid .1rem var(--bg-color);
+    font-weight: 500;
+    z-index: 100;
+    opacity: 0;
+    animation: headAppears 1.5s forwards;
+}
+
+/* Loader Design */
+.div__main_loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #000;
+}
+
+.hidden {
+    overflow: hidden;
+}
+
+.hidden-1 {
+    display: none;
+}
+
+#hidden-1 {
+    display: none;
+}
+
+@keyframes loader {
+    0%, 10%, 100% {
+      width: 80px;
+      height: 80px;
+    }
+    65% {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+@keyframes loaderBlock {
+    0%, 30% {
+      transform: rotate(0);
+    }
+    55% {
+      background-color: var(--text-color); /* mitad de camino */
+    }
+    100% {
+      transform: rotate(90deg);
+    }
+  }
+
+  @keyframes loaderBlockInverse {
+    0%, 20% {
+      transform: rotate(0);
+    }
+    55% {
+      background-color: var(--text-color);
+    }
+    100% {
+      transform: rotate(-90deg);
+    }
+  }
+  
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border: solid .1rem var(--bg-color);
+    transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+    animation: loader 1.2s infinite ease-in-out;
+  }
+  .loader span {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #eee;
+    animation: loaderBlock 1.2s infinite ease-in-out both;
+  }
+  .loader span:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+  .loader span:nth-child(2) {
+    top: 0;
+    right: 0;
+    animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+  }
+  .loader span:nth-child(3) {
+    bottom: 0;
+    left: 0;
+    animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+  }
+  .loader span:nth-child(4) {
+    bottom: 0;
+    right: 0;
+  }
+
+
+
+
+/* ---------------------- */
+.icon-header {
+    color: var(--bg-color);
+    padding: 1rem; /* Altura */
+}
+
+.navbar ul {
+    list-style-type: none;
+}
+
+.navbar li {
+    float: right; /* Hace que no haya espacio entre el espace betw y coloca a la derecha */
+}
+
+li a {
+    display: block;
+    color: var(--bg-color);
+    text-align: center;
+    padding: 1rem 4rem;
+    transition: .5s;
+}
+
+li a:hover{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Dropdown Menu Design */
+.dropdown-content { /* Hago la caja */
+    display: none;
+    position: absolute;
+    background: var(--text-color);
+    box-shadow: 0 .5rem 1rem 0 rgba(255, 255, 255, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a { /* Defino cómo se verán los links */
+    padding: 1rem 4rem;
+    border: solid .1rem #f1f1f1;
+    
+}
+
+.dropdown-content a:hover { /* Cómo se veran los links cuando el mouse esté por encima de ellos */
+    border: solid .1rem #f1f1f1;
+    background: var(--bg-color);
+}
+
+.dropdown:hover .dropdown-content { /* Cómo se mostrará el menú */
+    display: block;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+
+/* Il Nostro Album index */
+
+.principal {
+    padding: 12rem 9%;
+}
+
+.main-container, .main-container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.div-responsive1, .div-responsive2, .div-responsive3, .div-responsive4, .div-responsive5 {
+    width: 15%;
+    margin: 2rem;
+}
+
+.div-responsive1 {
+    opacity: 0;
+    animation: div1 3s 1.3s forwards;
+}
+
+@keyframes div1 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.div-responsive2 {
+    opacity: 0;
+    animation: div2 3s 4s forwards;
+}
+
+@keyframes div2 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.div-responsive3 {
+    opacity: 0;
+    animation: div3 3s 7s forwards;
+}
+
+@keyframes div3 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.div-responsive4 {
+    opacity: 0;
+    animation: div3 4s 5.5s forwards;
+}
+
+@keyframes div4 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.div-responsive5 {
+    opacity: 0;
+    animation: div5 3s 2.7s forwards;
+}
+
+@keyframes div5 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.main-container img {
+    opacity: 1;
+    filter: blur(0rem);
+    border-radius: .5rem;
+    transition: .9s;
+    width: 100%;
+    height: auto;
+    animation: imgFilter 1.5s forwards;
+    animation-delay: 10s;
+}
+
+
+.main-container img:hover{
+    opacity: 1;
+    animation: imgNoneFilter 1s;
+}
+
+/* Album Generale Section */
+.album {
+    padding: 9rem 4rem;
+}
+
+.main-container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 3rem;
+}
+
+.div-responsive-ag {
+    width: 30%;
+    margin: 2rem;
+}
+
+.main-container-2 img {
+    border-radius: .5rem;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: 1s;
+    animation: imgGeneraleI 2.5s forwards;
+    animation-delay: 1s;
+}
+
+@keyframes imgGeneraleI {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.main-container-2 img:hover {
+    transform: scale(1.1);
+}
+
+/* Album papa Section */
+
+.justDad {
+    padding: 8rem 4rem;
+}
+
+.div__container-dad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 3rem;
+}
+
+
+.div__container-dad img {
+    border-radius: .5rem;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: .8s;
+    animation: imgDad 2.5s forwards;
+    animation-delay: 1s;
+}
+
+@keyframes imgDad {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.div__container-dad img:hover {
+    transform: scale(1.1);
+}
+
+/* Album video e animazioni Section */
+.videoAnimazioni {
+    padding: 8rem 4rem; 
+}
+
+.div__video-tittle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.videoAnimazioni h1 {
+    padding: .7rem;
+    background: transparent;
+    border: solid .1rem var(--text-color);
+    border-radius: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--text-color);
+    font-family: 'Alkatra';
+    text-shadow: 0 0 .1rem var(--bg-color);
+    animation: h1Animation 1.5s forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+@keyframes h1Animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* icon responsive design */
+.icon-menu {
+    width: 4rem;
+    height: 4rem;
+    color: var(--bg-color);
+    margin-right: 2rem;
+    display: none;
+}
+
+.navbar-responsive {
+    display: none;
+}
+
+/* Benvenuto e nella versione mobile */
+.div__welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    display: none;
+    opacity: 0;
+    animation: divWelcome 1s forwards;
+}
+
+.div__mobile-version {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    display: none;
+    text-align: center;
+    opacity: 0;
+    animation: divWelcomeMobile 1s forwards;
+}
+
+
+.div__mobile-version p {
+    border: solid .1rem var(--text-color);
+    padding: .5rem;
+    border-radius: .5rem;
+    font-size: 1.2rem;
+}
+
+/* Contatto design */
+.contatto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9rem 4rem;
+}
+
+.div__contact {
+    width: 50%;
+    height: 65vh;
+    margin: 1rem;
+    text-align: center;
+    border: solid .1rem var(--text-color);
+    backdrop-filter: blur(.4rem); 
+    animation: divContact 2s forwards;
+}
+
+.div__contact-2 {
+    width: 50%;
+    height: 65vh;
+    margin: 1rem;
+    text-align: center;
+    border: solid .1rem var(--text-color);
+    backdrop-filter: blur(.4rem); 
+    animation: divContact-2 2s forwards;
+}
+
+.contatto p {
+    font-size: 3rem;
+    margin: 1rem;
+}
+
+.contatto p a{
+    font-size: 3.5rem;
+    color: rgb(193, 118, 7);
+    text-shadow: 0 0 .5rem var(--bg-color);
+}
+
+.div__contact span {
+    font-size: 3.5rem;
+    color: rgb(193, 7, 7);
+    text-shadow: 0 0 .5rem var(--bg-color);
+}
+
+
+/* others */
+.principal .active-2 {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.principal .active-2 p {
+    border:solid .1rem rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+
+@keyframes headAppears {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes imgNoneFilter {
+    0%{
+        filter: blur(.4rem);
+    }
+    100% {
+        filter: blur(.0rem);
+    }
+}
+
+@keyframes imgFilter {
+    0%{
+        filter: blur(0rem);
+    }
+    100% {
+        filter: blur(.4rem);
+    }
+}
+
+
+@keyframes divWelcome {
+    0% {
+        opacity: 0;
+        transform: translateY(500px);
+    }
+    25% {
+        opacity: 0;
+    } 
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes divWelcomeMobile {
+    0% {
+        opacity: 0;
+        transform: translateY(500px);
+    }
+    25% {
+        opacity: 0;
+    } 
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes divContact {
+    0% {
+        opacity: 0;
+        transform: translateX(-1000px);
+    }
+    25% {
+        /* opacity: 0; */
+    } 
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes divContact-2 {
+    0% {
+        opacity: 0;
+        transform: translateX(1000px);
+    }
+    25% {
+        /* opacity: 0; */
+    } 
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+/* Breakpoints */
+@media (max-width: 2560px ) {
+    html {
+        font-size: 100%;
+    }
+
+    .principal {
+        padding: 12rem 3rem;
+    }
+
+    .div-responsive1, .div-responsive2, .div-responsive3, .div-responsive4, .div-responsive5 {
+        width: 17%;
+        margin: 1rem;
+    }
+
+    .div__welcome {
+        display: flex;
+    }
+
+    .div__welcome h2 {
+        border: solid .1rem var(--text-color);
+        padding: .5rem;
+        border-radius: .5rem;
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (max-width: 1920px) {
+
+    html {
+        font-size: 95%;
+    }
+
+    .div-responsive1, .div-responsive2, .div-responsive3, .div-responsive4, .div-responsive5 {
+        width: 17%;
+        margin: 1rem;
+    }
+
+    .principal {
+        padding: 12rem 6rem;
+    }
+
+
+}
+
+@media (max-width: 1600px) {
+
+    html {
+        font-size: 70%;
+    }
+
+    .div-responsive1, .div-responsive2, .div-responsive3, .div-responsive4, .div-responsive5 {
+        width: 14%;
+        margin: 1rem;
+    }
+
+    .principal {
+        padding: 12rem 6rem;
+    }
+}
+
+@media (max-width: 1400px) {
+
+
+    .div-responsive1, .div-responsive2, .div-responsive3, .div-responsive4, .div-responsive5 {
+        width: 17%;
+        margin: 1rem;
+    }
+
+    /* Change in album general */
+
+    .album {
+        padding: 7rem 4rem;
+    }
+
+    .div-responsive-ag {
+        width: 40%;
+        margin: 2rem;
+    }
+
+    /* Change in videoAnimazione */
+    .div__responsive-videos {
+    margin: 1rem;
+    width: 40%;
+}
+
+.div__responsive-videos-special {
+    margin: 2rem;
+    margin-right: 6rem;
+    margin-left: 6rem;
+    width: 60%;
+}
+}
+
+@media (max-width: 1260px) {
+    html {
+        font-size: 90%;
+    }
+
+    .div-responsive1, .div-responsive2, .div-responsive3, .div-responsive4, .div-responsive5 {
+        width: 17%;
+        margin: 1rem;
+    }
+
+    .principal {
+        padding: 12rem 2rem;
+    }
+
+    .contatto p {
+        font-size: 2.2rem;
+        margin: 1rem;
+    }
+
+    /* Change in Contatto */
+    .contatto p {
+        font-size: 2rem;
+        margin: 1rem;
+    }
+    
+    .contatto p a{
+        font-size: 2.5rem;
+    }
+    
+    .div__contact span {
+        font-size: 2.5rem;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    html {
+        font-size: 70%;
+    }
+
+    .div-responsive1, .div-responsive2, .div-responsive3, .div-responsive4, .div-responsive5 {
+        width: 16.5%;
+        margin: 1rem;
+    }
+    
+    .principal {
+        padding: 12rem 2rem;
+    }
+
+    /* Change dad album */
+    .justDad {
+        padding: 6rem 3rem;
+    }
+
+    /* Change in Contatto */
+    .contatto p {
+        font-size: 2.5rem;
+        margin: 1rem;
+    }
+    
+    .contatto p a{
+        font-size: 3rem;
+    }
+    
+    .div__contact span {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 900px) {
+
+    html {
+        font-size: 70%;
+    }
+
+    .navbar-responsive {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .icon-menu {
+        display: block;
+    }
+
+    .div__mobile-version {
+        display: flex;
+    }
+
+    .div__welcome {
+        display: none;
+    }
+    
+
+    /* Responsive Menu Design */
+    .navbar-responsive {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        top: 100%;
+        left: 0;
+        background: rgba(255, 255, 255, 0.7);
+        margin-left: -100%;
+        transition: all 0.35s ease;
+    }
+
+    .navbar-responsive.active {
+        margin-left: 0;
+    }
+
+    .navbar-responsive a:first-child {
+        padding-top: 1rem;
+    }
+
+    .navbar-responsive a {
+        padding-bottom: 3.5rem;
+        display: block;
+        color: var(--bg-color);
+        text-shadow: 0 0 .5rem var(--bg-color);
+    }
+
+    /* index changes */
+
+    .div-responsive1, .div-responsive2, .div-responsive3, .div-responsive4, .div-responsive5 {
+        width: 16%;
+    }
+
+    .principal {
+        padding: 8rem 1rem;
+    }
+
+    /* Change in album general */
+    .album {
+        padding: 6rem 0rem;
+    }
+
+    .div-responsive-ag {
+        width: 45%;
+        margin: 1rem;
+    }
+
+    /* Change dad album */
+    .justDad {
+        padding: 6rem 0rem;
+    }
+
+    /* Change in Contatto */
+    .contatto p {
+        font-size: 2rem;
+        margin: 1rem;
+    }
+    
+    .contatto p a{
+        font-size: 2.5rem;
+    }
+    
+    .div__contact span {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 690px) { 
+
+    /* Change in album general */
+
+    .album {
+        padding: 5rem 4rem;
+    }
+
+    .div-responsive-ag {
+        width: 90%;
+        margin: 2rem;
+    }
+    
+    /* Change in videoAnimazione */
+    .videoAnimazioni {
+        padding: 8rem 2rem; 
+    }
+
+    .videoAnimazioni h1 {
+        font-size: 1.5;
+    }
+
+    /* Change dad album */
+    .justDad {
+        padding: 5rem 3rem;
+    }
+
+    /* Change in Contatto */
+    .contatto p {
+        font-size: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .contatto p a{
+        font-size: 2rem;
+    }
+    
+    .div__contact span {
+        font-size: 2rem;
+    }
+    
+}
+
+@media (max-width: 550px){ 
+
+    /* Changes in index general*/
+    .div-responsive1, .div-responsive2, .div-responsive3, .div-responsive4, .div-responsive5 {
+        width: 13.5%;
+        margin: 1rem;
+    }
+
+    /* Change in album general */
+    .album {
+        padding: 4rem 0rem;
+    }
+
+    .div-responsive-ag {
+        width: 100%;
+        margin: 1rem;
+    }
+
+    /* Change in videoAnimazione */
+    .videoAnimazioni {
+        padding: 8rem 2rem; 
+    }
+
+    .videoAnimazioni h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Change dad album */
+    .justDad {
+        padding: 5rem 0rem;
+    }
+
+    /* Change in Contatto */
+    .contatto p {
+        font-size: 1rem;
+        margin: 1rem;
+    }
+    
+    .contatto p a{
+        font-size: 1.5rem;
+    }
+    
+    .div__contact span {
+        font-size: 1.5rem;
+    }   
+}
+
+@media (max-width: 365px){ 
+    html {
+        font-size: 60%;
+    }
+
+    /* Change in album general */
+    .album {
+        padding: 5rem 0rem;
+    }
+
+    .div-responsive-ag {
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
