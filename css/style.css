@@ -32,8 +32,8 @@ body {
 
 header{
     position: fixed;
-    /* top: 0;
-    left: 0; */
+    top: 0;
+    left: 0;
     background: var(--text-color);
     width: 100%;
     font-size: 2.2rem;
@@ -44,7 +44,7 @@ header{
     font-weight: 500;
     z-index: 100;
     opacity: 0;
-    animation: headAppears 1.5s forwards;
+    animation: headAppears 2s forwards;
 }
 
 /* Loader Design */
@@ -525,11 +525,9 @@ li a:hover{
 
 @keyframes headAppears {
     0% {
-        transform: translateY(-100px);
         opacity: 0;
     }
     100% {
-        transform: translateY(0);
         opacity: 1;
     }
 }
