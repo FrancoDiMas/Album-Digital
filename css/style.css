@@ -40,7 +40,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: solid .1rem var(--bg-color);
+    border-bottom: solid .1rem var(--bg-color);
     font-weight: 500;
     z-index: 100;
     opacity: 0;
