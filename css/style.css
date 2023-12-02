@@ -28,6 +28,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    overflow-x: hidden;
 }
 
 header{
@@ -469,13 +470,13 @@ li a:hover{
 .contatto {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     padding: 9rem 4rem;
 }
 
 .div__contact {
     width: 50%;
-    height: 65vh;
+    height: fit-content;
     margin: 1rem;
     text-align: center;
     border: solid .1rem var(--text-color);
@@ -485,7 +486,7 @@ li a:hover{
 
 .div__contact-2 {
     width: 50%;
-    height: 65vh;
+    height: fit-content;
     margin: 1rem;
     text-align: center;
     border: solid .1rem var(--text-color);
