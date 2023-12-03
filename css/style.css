@@ -26,10 +26,9 @@ body {
     background: url(../imagenes/fondo-real.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-position: center;
     overflow-x: hidden;
-    scroll-behavior: smooth;
 }
 
 header{
